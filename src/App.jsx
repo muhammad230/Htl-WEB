@@ -1,12 +1,13 @@
 import React from 'react'
+import FirstPage from './components/firstPage'
 
 
 function App() {
 
   return (
    <div>
-    <h1 className='text-4xl text-blue-500 mt-1.5 text-center font-bold underline-black'>Welcome to Hotel Booking website</h1>
-
+      
+    <FirstPage />
    </div>
   )
 }
