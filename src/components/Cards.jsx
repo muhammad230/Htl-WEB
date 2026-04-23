@@ -136,7 +136,7 @@ const Cards = (props) => {
         </div>
       </div>
 
-        {/*................... card 3 ..................*/}
+      {/*................... card 3 ..................*/}
       <div className="bg-white rounded-xl p-6 w-130  shadow-md hover:shadow-lg transition">
         {/* Top Section */}
         <div className="flex items-start gap-4">
@@ -154,7 +154,7 @@ const Cards = (props) => {
             <h2 className="text-xl font-semibold">Nonna’s Kitchen</h2>
 
             <p className="text-gray-500 text-sm flex items-center gap-1">
-             Italian· Old Town 
+              Italian· Old Town
             </p>
 
             <p className="text-yellow-500 text-sm flex items-center gap-1 mt-1">
@@ -201,11 +201,11 @@ const Cards = (props) => {
         </div>
       </div>
 
-      {/*................... card 4 ..................*/}{/*................... card 3 ..................*/}
+      {/*................... card 4 ..................*/}
       <div className="bg-white rounded-xl p-6 w-130  shadow-md hover:shadow-lg transition">
         {/* Top Section */}
         <div className="flex items-start gap-4">
-          {/* Image with zoom */}
+          {/* Image  zoom */}
           <div className="group w-24 h-24 overflow-hidden rounded-lg">
             <img
               src="images/Frame 10.png"
@@ -265,12 +265,10 @@ const Cards = (props) => {
           </button>
         </div>
       </div>
-
-    
-
       
-        
+      
     </div>
+    
   );
 };
 export default Cards;
