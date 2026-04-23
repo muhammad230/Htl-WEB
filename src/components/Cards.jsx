@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 
 const Cards = (props) => {
   return (
-    <div className=" bg-gray-100 min-h-screen flex flex-row items-center justify-center gap-6">
+    <div className=" bg-gray-100  flex flex-wrap items-center justify-center gap-6">
       <div className="bg-white rounded-xl p-6 w-130  shadow-md hover:shadow-lg transition">
         {/* Top Section */}
         <div className="flex items-start gap-4">
