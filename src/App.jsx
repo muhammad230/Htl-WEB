@@ -1,5 +1,6 @@
 import React from 'react'
 import FirstPage from './components/firstPage'
+import Cards from './components/Cards'
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
    <div>
       
     <FirstPage />
+    <Cards />
    </div>
   )
 }
