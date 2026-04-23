@@ -1,15 +1,13 @@
-import React from 'react'
+import React from "react";
 import { FaStar } from "react-icons/fa";
-import { FaRegHeart } from "react-icons/fa";  
+import { FaRegHeart } from "react-icons/fa";
 
 const Cards = (props) => {
   return (
-      <div className="p-6 bg-gray-100 min-h-screen flex flex-row items-center justify-center gap-6">
+    <div className=" bg-gray-100 min-h-screen flex flex-row items-center justify-center gap-6">
       <div className="bg-white rounded-xl p-6 w-130  shadow-md hover:shadow-lg transition">
-
         {/* Top Section */}
         <div className="flex items-start gap-4">
-
           {/* Image with zoom */}
           <div className="group w-24 h-24 overflow-hidden rounded-lg">
             <img
@@ -39,7 +37,9 @@ const Cards = (props) => {
         {/* Tags */}
         <div className="mt-4 border border-gray-300 rounded-xl p-3 flex justify-between text-sm">
           <span className="text-gray-400">Tags</span>
-          <span className='font-semibold'>Seafood, Outdoor Seating, Fine Dining</span>
+          <span className="font-semibold">
+            Seafood, Outdoor Seating, Fine Dining
+          </span>
         </div>
 
         {/* Available Times */}
@@ -71,12 +71,10 @@ const Cards = (props) => {
         </div>
       </div>
 
-      {/* card 2 */}
+      {/* ...............card 2 ................*/}
       <div className="bg-white rounded-xl p-6 w-130  shadow-md hover:shadow-lg transition">
-
         {/* Top Section */}
         <div className="flex items-start gap-4">
-
           {/* Image with zoom */}
           <div className="group w-24 h-24 overflow-hidden rounded-lg">
             <img
@@ -106,7 +104,7 @@ const Cards = (props) => {
         {/* Tags */}
         <div className="mt-4 border border-gray-300 rounded-xl p-3 flex justify-between text-sm">
           <span className="text-gray-400">Tags</span>
-          <span className='font-semibold'>Sushi, Premium, Chef’s Special</span>
+          <span className="font-semibold">Sushi, Premium, Chef’s Special</span>
         </div>
 
         {/* Available Times */}
@@ -138,8 +136,6 @@ const Cards = (props) => {
         </div>
       </div>
     </div>
-
-
   );
-}
-export default Cards
+};
+export default Cards;
