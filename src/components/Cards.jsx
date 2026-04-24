@@ -12,12 +12,15 @@ const Cards = () => {
         <div className="fixed inset-0 bg-white z-50 overflow-x-auto">
           <div className="bg-white w-full max-w-full rounded-xl shadow-md p-8 my-8">
             <div className="flex items-center gap-3 mb-8">
-              <FaArrowLeft className="cursor-pointer text-gray-600 hover:text-gray-800" onClick={() => setShowReservation(false)} />
+              <FaArrowLeft className="cursor-pointer rounded-full border-2 text-gray-600 hover:text-gray-800" onClick={() => setShowReservation(false)} />
               <div>
-                <h1 className="text-2xl font-semibold">Reserve a Table</h1>
-                <p className="text-gray-500 text-sm">{selectedRestaurent}</p>
+                <h1 className="text-2xl font-semibold ml-12 py-5">Reserve a Table</h1>
+                <p className="text-gray-500 text-sm ml-12">
+                  {selectedRestaurent}
+                </p>
               </div>
             </div>
+            <hr  className="text-gray-300 mb-7"/>
             
             <form className="space-y-8">
               {/* Personal Information */}
