@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 
-const Cards = (props) => {
+const Cards = () => {
+  const [selectedRestaurent, setselectedRestaurent]= useState(null)
+  const [showReservation, setShowReservation] = useState(false)
+
   return (
+    <>
+      {showReservation && (
+        <div className="fixed inset-0 bg-amber-700 bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-8 w-full max-w-2xl shadow-lg">
+            <h2 className="text-2xl font-bold mb-4">Reserve Table at {selectedRestaurent}</h2>
+            
+            <h1 className="text-4xl font-bold text-olive-400 text-center">welcom to reservation table</h1>
+            
+            <div className="flex gap-4 mt-6">
+              <button onClick={() => setShowReservation(false)} className="flex-1 bg-purple-700 text-white py-2 rounded-lg hover:bg-purple-800">
+                Confirm Reservation
+              </button>
+              <button onClick={() => setShowReservation(false)} className="flex-1 border border-gray-300 py-2 rounded-lg hover:bg-gray-50">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    
     <div className=" bg-gray-100  flex flex-wrap items-center justify-center gap-6">
       <div className="bg-white rounded-xl p-6 w-130  shadow-md hover:shadow-lg transition">
         {/* Top Section */}
@@ -61,7 +84,10 @@ const Cards = (props) => {
 
         {/* Buttons */}
         <div className="flex gap-4 mt-5">
-          <button className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition">
+          <button onClick={()=>{
+            setselectedRestaurent("The Coastal Grill")
+            setShowReservation(true);
+          }} className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition">
             Reserve Table
           </button>
 
@@ -126,7 +152,10 @@ const Cards = (props) => {
 
         {/* Buttons */}
         <div className="flex gap-4 mt-5">
-          <button className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition">
+          <button onClick={()=>{
+            setselectedRestaurent("Sakura Sushi")
+            setShowReservation(true);
+          }} className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition">
             Reserve Table
           </button>
 
@@ -191,7 +220,11 @@ const Cards = (props) => {
 
         {/* Buttons */}
         <div className="flex gap-4 mt-5">
-          <button className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition">
+          <button onClick={()=>{
+            setselectedRestaurent("Nonna’s Kitchen")
+            setShowReservation(true);
+        }}
+             className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition">
             Reserve Table
           </button>
 
@@ -256,7 +289,11 @@ const Cards = (props) => {
 
         {/* Buttons */}
         <div className="flex gap-4 mt-5">
-          <button className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition">
+          <button onClick={()=>{
+            setselectedRestaurent("Green Garden")
+            setShowReservation(true);
+          }}
+             className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition">
             Reserve Table
           </button>
 
@@ -268,6 +305,7 @@ const Cards = (props) => {
       
       
     </div>
+    </>
     
   );
 };
