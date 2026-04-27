@@ -57,7 +57,7 @@ const FirstPage = () => {
           </div>
 
           {/* Button */}
-          <button className="px-6 py-3 rounded-lg text-white bg-gradient-to-r from-purple-600 to-pink-500">
+          <button className="px-6 py-3 rounded-lg text-white bg-purple-700 hover:bg-purple-800 transition-colors duration-300">
             View Bookings
           </button>
         </div>
