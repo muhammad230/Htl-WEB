@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 const Cards = () => {
   const [selectedRestaurent, setselectedRestaurent] = useState(null);
   const [showReservation, setShowReservation] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -12,30 +14,51 @@ const Cards = () => {
         <div className="fixed inset-0 bg-white z-50 overflow-x-auto">
           <div className="bg-white w-full max-w-full rounded-xl shadow-md p-8 my-8">
             <div className="flex items-center gap-3 mb-8">
-              <FaArrowLeft className="cursor-pointer rounded-full border-2 text-gray-600 hover:text-gray-800" onClick={() => setShowReservation(false)} />
+              <FaArrowLeft
+                className="cursor-pointer rounded-full border-2 text-gray-600 hover:text-gray-800"
+                onClick={() => setShowReservation(false)}
+              />
               <div>
-                <h1 className="text-2xl font-semibold ml-12 py-5">Reserve a Table</h1>
+                <h1 className="text-2xl font-semibold ml-12 py-5">
+                  Reserve a Table
+                </h1>
                 <p className="text-gray-500 text-sm ml-12">
                   {selectedRestaurent}
                 </p>
               </div>
             </div>
-            <hr  className="text-gray-300 mb-7"/>
-            
+            <hr className="text-gray-300 mb-7" />
+
             <form className="space-y-8">
               {/* Personal Information */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">Personal Information</h3>
+                <h3 className="text-lg font-semibold mb-4">
+                  Personal Information
+                </h3>
                 <div className="grid grid-cols-3 gap-4">
-                  <input type="text" placeholder="Full Name*" className="border border-gray-300 rounded-lg px-4 py-2" />
-                  <input type="email" placeholder="Email*" className="border border-gray-300 rounded-lg px-4 py-2" />
-                  <input type="tel" placeholder="Phone Number*" className="border border-gray-300 rounded-lg px-4 py-2" />
+                  <input
+                    type="text"
+                    placeholder="Full Name*"
+                    className="border border-gray-300 rounded-lg px-4 py-2"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email*"
+                    className="border border-gray-300 rounded-lg px-4 py-2"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone Number*"
+                    className="border border-gray-300 rounded-lg px-4 py-2"
+                  />
                 </div>
               </div>
 
               {/* Reservation Details */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">Reservation Details</h3>
+                <h3 className="text-lg font-semibold mb-4">
+                  Reservation Details
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   <select className="border border-gray-300 rounded-lg px-4 py-2">
                     <option>Select Date*</option>
@@ -67,7 +90,9 @@ const Cards = () => {
 
               {/* Additional Information */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">Additional Information</h3>
+                <h3 className="text-lg font-semibold mb-4">
+                  Additional Information
+                </h3>
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <select className="border border-gray-300 rounded-lg px-4 py-2">
                     <option>Any Seating Preference?</option>
@@ -82,7 +107,11 @@ const Cards = () => {
                     <option>Gluten-free</option>
                   </select>
                 </div>
-                <textarea placeholder="Any Special Requests?" className="w-full border border-gray-300 rounded-lg px-4 py-2" rows="3"></textarea>
+                <textarea
+                  placeholder="Any Special Requests?"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                  rows="3"
+                ></textarea>
               </div>
 
               {/* Buttons */}
@@ -173,10 +202,12 @@ const Cards = () => {
             >
               Reserve Table
             </button>
-
-            <button className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition">
-              View Details
-            </button>
+<button
+  onClick={() => navigate("/details")}
+  className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
+>
+  View Details
+</button>
           </div>
         </div>
 
@@ -247,9 +278,12 @@ const Cards = () => {
               Reserve Table
             </button>
 
-            <button className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition">
-              View Details
-            </button>
+           <button
+  onClick={() => navigate("/details")}
+  className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
+>
+  View Details
+</button>
           </div>
         </div>
 
@@ -318,9 +352,12 @@ const Cards = () => {
               Reserve Table
             </button>
 
-            <button className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition">
-              View Details
-            </button>
+          <button
+  onClick={() => navigate("/details")}
+  className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
+>
+  View Details
+</button>
           </div>
         </div>
 
@@ -389,9 +426,12 @@ const Cards = () => {
               Reserve Table
             </button>
 
-            <button className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition">
-              View Details
-            </button>
+            <button
+  onClick={() => navigate("/details")}
+  className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
+>
+  View Details
+</button>
           </div>
         </div>
       </div>
