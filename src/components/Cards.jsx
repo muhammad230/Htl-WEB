@@ -202,12 +202,22 @@ const Cards = () => {
             >
               Reserve Table
             </button>
-<button
-  onClick={() => navigate("/details")}
-  className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
->
-  View Details
-</button>
+            <button
+              onClick={() =>
+                navigate("/details", {
+                  state: {
+                    name: "The Coastal Grill",
+                    image: "images/Frame 7.png",
+                    category: "Mediterranean · Downtown",
+                    description:
+                      "A seaside inspired dining experience blending fresh seasonal ingredients with warm coastal ambience.",
+                  },
+                })
+              }
+              className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
+            >
+              View Details
+            </button>
           </div>
         </div>
 
@@ -278,12 +288,22 @@ const Cards = () => {
               Reserve Table
             </button>
 
-           <button
-  onClick={() => navigate("/details")}
-  className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
->
-  View Details
-</button>
+            <button
+              onClick={() =>
+                navigate("/details", {
+                  state: {
+                    name: "Sakura Sushi",
+                    image: "images/Frame 8.png",
+                    category: "Japanese · City Center",
+                    description:
+                      "Experience the finest sushi in a modern setting with a view of the city.",
+                  },
+                })
+              }
+              className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
+            >
+              View Details
+            </button>
           </div>
         </div>
 
@@ -352,12 +372,22 @@ const Cards = () => {
               Reserve Table
             </button>
 
-          <button
-  onClick={() => navigate("/details")}
-  className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
->
-  View Details
-</button>
+            <button
+              onClick={() =>
+                navigate("/details", {
+                  state: {
+                    name: "Nonna’s Kitchen",
+                    image: "images/Frame 9.png",
+                    category: "Italian · Old Town",
+                    description:
+                      "A traditional Italian dining experience with a cozy atmosphere and authentic recipes.",
+                  },
+                })
+              }
+              className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
+            >
+              View Details
+            </button>
           </div>
         </div>
 
@@ -427,11 +457,21 @@ const Cards = () => {
             </button>
 
             <button
-  onClick={() => navigate("/details")}
-  className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
->
-  View Details
-</button>
+              onClick={() =>
+                navigate("/details", {
+                  state: {
+                    name: "Green Garden",
+                    image: "images/Frame 10.png",
+                    category: "Salad · Miracle Garden",
+                    description:
+                      "A healthy and refreshing dining experience with a focus on fresh, organic ingredients.",
+                  },
+                })
+              }
+              className="flex-1 border border-purple-700 text-purple-700 py-3 rounded-lg hover:bg-purple-50 transition"
+            >
+              View Details
+            </button>
           </div>
         </div>
       </div>
