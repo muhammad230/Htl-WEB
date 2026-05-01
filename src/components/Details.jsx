@@ -5,6 +5,7 @@ import { FiPhone, FiClock, FiMapPin } from "react-icons/fi";
 
 const Details = () => {
   const location = useLocation();
+  const [showReservation, setShowReservation] = React.useState(false);
 
   const restaurant = location.state;
 
@@ -27,7 +28,9 @@ const Details = () => {
             </p>
           </div>
 
-          <button className="bg-fuchsia-600 text-white px-8 py-3 rounded-md hover:bg-fuchsia-700">
+          <button onClick={() => {
+            setShowReservation(true);
+          }} className="bg-fuchsia-600 text-white px-8 py-3 rounded-md hover:bg-fuchsia-700">
             Make Reservation
           </button>
         </div>
