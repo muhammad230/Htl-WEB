@@ -6,6 +6,14 @@ const ReservationModal = ({
   setShowReservation,
   selectedRestaurent,
 }) => {
+  const [confirmed, setConfirmed] = React.useState(false);
+
+  React.useEffect(() => {
+    if (showReservation) {
+      setConfirmed(false);
+    }
+  }, [showReservation]);
+
   if (!showReservation) return null;
 
   return (
@@ -29,26 +37,45 @@ const ReservationModal = ({
           </div>
         </div>
 
-        <form className="space-y-6">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="w-full border p-3 rounded-lg"
-          />
+        {confirmed ? (
+          <div className="text-center py-10">
+            <h2 className="text-3xl font-semibold text-green-600 mb-4">
+              Congratulations!
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Your reservation has been confirmed for {selectedRestaurent}.
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowReservation(false)}
+              className="bg-purple-700 text-white px-6 py-3 rounded-lg"
+            >
+              Close
+            </button>
+          </div>
+        ) : (
+          <form className="space-y-6">
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="w-full border p-3 rounded-lg"
+            />
 
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full border p-3 rounded-lg"
-          />
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full border p-3 rounded-lg"
+            />
 
-          <button
-            type="button"
-            className="bg-purple-700 text-white px-6 py-3 rounded-lg"
-          >
-            Confirm Reservation
-          </button>
-        </form>
+            <button
+              type="button"
+              onClick={() => setConfirmed(true)}
+              className="bg-purple-700 text-white px-6 py-3 rounded-lg"
+            >
+              Confirm Reservation
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
