@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import ReservationModal from "./ReservationModal";
 const Cards = () => {
   const [selectedRestaurent, setselectedRestaurent] = useState(null);
   const [showReservation, setShowReservation] = useState(false);
@@ -11,6 +12,7 @@ const Cards = () => {
   return (
     <>
       {showReservation && (
+        
         <div className="fixed inset-0 bg-white z-50 overflow-x-auto">
           <div className="bg-white w-full max-w-full rounded-xl shadow-md p-8 my-8">
             <div className="flex items-center gap-3 mb-8">
