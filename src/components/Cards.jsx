@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import ReservationModal from "./ReservationModal2.jsx";
+import ReservationModal from "./ReservationModal.jsx";
 const Cards = () => {
   const [selectedRestaurent, setselectedRestaurent] = useState(null);
   const [showReservation, setShowReservation] = useState(false);
