@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import ReservationModal from "./ReservationModal.jsx";
-const Cards = () => {
+const Cards = ({ addBooking }) => {
   const [selectedRestaurent, setselectedRestaurent] = useState(null);
   const [showReservation, setShowReservation] = useState(false);
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ const Cards = () => {
         showReservation={showReservation}
         setShowReservation={setShowReservation}
         selectedRestaurent={selectedRestaurent}
+        onConfirm={addBooking}
       />
 
       <div className=" bg-gray-100  flex flex-wrap items-center justify-center gap-6">
@@ -76,9 +77,14 @@ const Cards = () => {
           <div className="flex gap-4 mt-5">
             <button
               onClick={() => {
-                setselectedRestaurent("The Coastal Grill");
-                setShowReservation(true);
-              }}
+                  setselectedRestaurent({
+                    name: "The Coastal Grill",
+                    image: "images/Frame 7.png",
+                    category: "Mediterranean · Downtown",
+                    rating: 4.7,
+                  });
+                  setShowReservation(true);
+                }}
               className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition"
             >
               Reserve Table
@@ -161,7 +167,12 @@ const Cards = () => {
           <div className="flex gap-4 mt-5">
             <button
               onClick={() => {
-                setselectedRestaurent("Sakura Sushi");
+                setselectedRestaurent({
+                  name: "Sakura Sushi",
+                  image: "images/Frame 8.png",
+                  category: "Japanese · City Center",
+                  rating: 4.7,
+                });
                 setShowReservation(true);
               }}
               className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition"
@@ -245,7 +256,12 @@ const Cards = () => {
           <div className="flex gap-4 mt-5">
             <button
               onClick={() => {
-                setselectedRestaurent("Nonna’s Kitchen");
+                setselectedRestaurent({
+                  name: "Nonna’s Kitchen",
+                  image: "images/Frame 9.png",
+                  category: "Italian· Old Town",
+                  rating: 4.7,
+                });
                 setShowReservation(true);
               }}
               className="flex-1 bg-purple-700 text-white py-3 rounded-lg hover:bg-purple-800 transition"

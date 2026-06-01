@@ -4,18 +4,30 @@ import { FaStar } from "react-icons/fa";
 import { FiPhone, FiClock, FiMapPin } from "react-icons/fi";
 import ReservationModal from "./ReservationModal";
 
-const Details = () => {
+const Details = ({ addBooking }) => {
   const location = useLocation();
   const [showReservation, setShowReservation] = React.useState(false);
 
   const restaurant = location.state;
+
+  if (!restaurant) {
+    return (
+      <div className="bg-gray-100 min-h-screen flex items-center justify-center p-8">
+        <div className="bg-white rounded-3xl border border-gray-200 p-10 text-center">
+          <h2 className="text-2xl font-semibold">No restaurant selected</h2>
+          <p className="text-gray-500 mt-3">Please go back and choose a restaurant first.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gray-100 min-h-screen flex justify-center py-10 px-4">
       <ReservationModal
         showReservation={showReservation}
         setShowReservation={setShowReservation}
-        selectedRestaurent={restaurant.name}
+        selectedRestaurent={restaurant}
+        onConfirm={addBooking}
       />
       <div className="w-full max-w-5xl bg-white border border-gray-200 p-8">
         {/* TOP SECTION */}

@@ -1,8 +1,9 @@
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
 
-const ReservationModal = ({ showReservation, setShowReservation, selectedRestaurent }) => {
+const ReservationModal = ({ showReservation, setShowReservation, selectedRestaurent, onConfirm }) => {
   const [confirmed, setConfirmed] = React.useState(false);
+  const [confirmedBooking, setConfirmedBooking] = React.useState(null);
   const [form, setForm] = React.useState({
     fullName: "",
     email: "",
@@ -14,6 +15,7 @@ const ReservationModal = ({ showReservation, setShowReservation, selectedRestaur
     seating: "",
     dietary: "",
     requests: "",
+    status: "Confirmed",
   });
 
   React.useEffect(() => {
@@ -55,49 +57,39 @@ const ReservationModal = ({ showReservation, setShowReservation, selectedRestaur
             />
             <div>
               <h1 className="text-2xl font-semibold">Reserve a Table</h1>
-              <p className="text-gray-500 text-sm">{selectedRestaurent}</p>
+              <p className="text-gray-500 text-sm">{typeof selectedRestaurent === 'string' ? selectedRestaurent : selectedRestaurent?.name}</p>
             </div>
           </div>
 
           {confirmed ? (
             <div className="text-center py-10">
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100 text-3xl">
-                🎉
-              </div>
+              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100 text-3xl">🎉</div>
               <h2 className="text-3xl font-semibold">You&apos;re all set!</h2>
-              <p className="text-gray-600 mt-3">
-                Your reservation at {selectedRestaurent} is confirmed.
-              </p>
+              <p className="text-gray-600 mt-3">Your reservation at {confirmedBooking?.name || (typeof selectedRestaurent === 'string' ? selectedRestaurent : selectedRestaurent?.name)} is {confirmedBooking?.status || form.status}.</p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-3xl border border-gray-200 p-4 text-left">
                   <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Date</p>
-                  <p className="mt-3 font-semibold">{form.date || "-"}</p>
+                  <p className="mt-3 font-semibold">{confirmedBooking?.date || form.date || "-"}</p>
                 </div>
                 <div className="rounded-3xl border border-gray-200 p-4 text-left">
                   <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Time</p>
-                  <p className="mt-3 font-semibold">{form.time || "-"}</p>
+                  <p className="mt-3 font-semibold">{confirmedBooking?.time || form.time || "-"}</p>
                 </div>
                 <div className="rounded-3xl border border-gray-200 p-4 text-left">
                   <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Party Size</p>
-                  <p className="mt-3 font-semibold">{form.partySize || "-"}</p>
+                  <p className="mt-3 font-semibold">{confirmedBooking?.partySize || form.partySize || "-"}</p>
                 </div>
                 <div className="rounded-3xl border border-gray-200 p-4 text-left">
                   <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Confirmation sent to</p>
-                  <p className="mt-3 font-semibold">{form.email || "-"}</p>
+                  <p className="mt-3 font-semibold">{confirmedBooking?.email || form.email || "-"}</p>
                 </div>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setShowReservation(false)}
-                className="mt-8 w-full rounded-2xl bg-purple-700 px-6 py-3 text-white hover:bg-purple-800"
-              >
-                Make a New Reservation
-              </button>
-              <p className="mt-4 text-sm text-gray-400">
-                Need to make change? Contact the restaurant directly.
-              </p>
+              <div className="mt-4 text-sm text-gray-500">Confirmation: <span className="font-semibold text-gray-700">{confirmedBooking?.confirmationCode || "-"}</span></div>
+
+              <button type="button" onClick={() => { setShowReservation(false); setConfirmed(false); setConfirmedBooking(null); }} className="mt-8 w-full rounded-2xl bg-purple-700 px-6 py-3 text-white hover:bg-purple-800">Make a New Reservation</button>
+              <p className="mt-4 text-sm text-gray-400">Need to make change? Contact the restaurant directly.</p>
             </div>
           ) : (
             <form className="space-y-6">
@@ -219,10 +211,46 @@ const ReservationModal = ({ showReservation, setShowReservation, selectedRestaur
                 />
               </div>
 
+              <div className="grid gap-4 sm:grid-cols-2">
+                <select
+                  name="status"
+                  value={form.status}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 px-4 py-3 rounded-2xl"
+                >
+                  <option value="Confirmed">Save as Confirmed</option>
+                  <option value="Pending">Save as Pending</option>
+                </select>
+                <div />
+              </div>
+
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button
                   type="button"
-                  onClick={() => setConfirmed(true)}
+                  onClick={() => {
+                    const name = typeof selectedRestaurent === 'string' ? selectedRestaurent : selectedRestaurent?.name;
+                    const image = typeof selectedRestaurent === 'object' ? selectedRestaurent?.image : undefined;
+                    const category = typeof selectedRestaurent === 'object' ? selectedRestaurent?.category : undefined;
+                    const rating = typeof selectedRestaurent === 'object' ? selectedRestaurent?.rating : undefined;
+
+                    const codePrefix = (name || "").split(" ").map((s) => s[0]).join("").slice(0,4).toUpperCase() || "BK";
+                    const confirmationCode = `${codePrefix}-${Math.floor(100000 + Math.random() * 900000)}`;
+
+                    const booking = {
+                      name,
+                      image,
+                      category,
+                      rating,
+                      ...form,
+                      status: form.status || "Confirmed",
+                      confirmationCode,
+                      bookedAt: new Date().toISOString(),
+                    };
+
+                    onConfirm?.(booking);
+                    setConfirmedBooking(booking);
+                    setConfirmed(true);
+                  }}
                   className="flex-1 rounded-2xl bg-purple-700 px-6 py-3 text-white hover:bg-purple-800"
                 >
                   Confirm Reservation
