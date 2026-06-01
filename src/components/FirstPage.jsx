@@ -3,10 +3,11 @@ import "../App.css";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaUtensils } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-
-
+import { useNavigate } from "react-router-dom";
 
 const FirstPage = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="mt-17">
       <div className="text-center space-y-6">
@@ -57,7 +58,10 @@ const FirstPage = () => {
           </div>
 
           {/* Button */}
-          <button className="px-6 py-3 rounded-lg text-white bg-gradient-to-r from-purple-600 to-pink-500">
+          <button
+            onClick={() => navigate("/bookings")}
+            className="px-6 py-3 rounded-lg text-white bg-purple-700 hover:bg-purple-800 transition-colors duration-300"
+          >
             View Bookings
           </button>
         </div>
