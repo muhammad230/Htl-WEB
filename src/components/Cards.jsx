@@ -6,11 +6,6 @@ import ReservationModal from "./ReservationModal.jsx";
 
 
 const Cards = ({ addBooking }) => {
-  
-
-
-const Cards = ({ addBooking }) => {
-const Cards = () => {
   const [selectedRestaurent, setselectedRestaurent] = useState(null);
   const [showReservation, setShowReservation] = useState(false);
   const navigate = useNavigate();
