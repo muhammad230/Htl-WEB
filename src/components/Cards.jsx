@@ -4,7 +4,11 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import ReservationModal from "./ReservationModal.jsx";
+<<<<<<< HEAD
 const Cards = ({ addBooking }) => {
+=======
+const Cards = () => {
+>>>>>>> 05557898178a6b161deba769184624848434121d
   const [selectedRestaurent, setselectedRestaurent] = useState(null);
   const [showReservation, setShowReservation] = useState(false);
   const navigate = useNavigate();
