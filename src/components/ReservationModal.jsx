@@ -1,11 +1,7 @@
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
-
-<<<<<<< HEAD
 const ReservationModal = ({ showReservation, setShowReservation, selectedRestaurent, onConfirm }) => {
-=======
-const ReservationModal = ({ showReservation, setShowReservation, selectedRestaurent }) => {
->>>>>>> 05557898178a6b161deba769184624848434121d
+
   const [confirmed, setConfirmed] = React.useState(false);
   const [confirmedBooking, setConfirmedBooking] = React.useState(null);
   const [form, setForm] = React.useState({
